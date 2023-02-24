@@ -1,0 +1,95 @@
+<!-- <button mat-raised-button >click</button>
+<mat-table #table [dataSource]="dataSourceWithPageSize" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+    <td mat-cell *matCellDef="let emp">{{ emp[column] }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
+  </mat-table>
+  <mat-paginator
+  #paginatorPageSize
+  [pageSizeOptions]="pageSizes"
+  showFirstLastButtons
+  ></mat-paginator> -->
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="storage_list">
+    <!-- Position Column -->
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef>Subject</th>
+      <td mat-cell *matCellDef="let element "><span class="main">{{element.subject}}</span></td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="message">
+      <th mat-header-cell *matHeaderCellDef>Details</th>
+      <td mat-cell *matCellDef="let element">{{element.message}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{element.date|date}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+   <!-- <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container> -->
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr data-bs-toggle="modal" data-bs-target="#mail"
+      mat-row
+      (click)="getdata(row)"
+      *matRowDef="let row; columns: displayedColumns" 
+    ></tr>
+  </table>
+ 
+ <mat-paginator
+    [pageSizeOptions]="[5,10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+
+
+
+  <div>
+  <div class="body">
+  <!-- Button trigger modal -->
+  
+  
+  <!-- Modal -->
+  <div 
+  class="modal fade" id="mail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="content">
+          <div class="sub1">
+          <p class="v1">{{regarding}}</p>
+          <p class="v2">&lt;{{from}}&gt;</p>
+          <p class="v3">{{details}}</p>
+          </div>
+          <div class="sub2">
+            <span><label>From:</label>{{from}}</span>
+            <span><label>To:</label>{{to}}</span>
+
+            <span><label>Cc:</label>{{cc}}</span>
+
+            <span><label>Date:</label>{{date|date}}</span>
+            </div>
+        </div>
+      
+        
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  

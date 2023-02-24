@@ -1,0 +1,82 @@
+<div class="content">
+
+<button mat-raised-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">New Mail</button>
+
+
+
+<div class="body">
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div 
+class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle" >New Email</h5>
+      <button type="button" class="close btn btn-secondary"  data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <form class="forms" [formGroup]="emailForm">
+      <mat-form-field >
+        <mat-label>From:</mat-label>
+        <input type="email"  matInput formControlName="from" >
+      </mat-form-field>
+
+      <mat-form-field>
+      <mat-label>To:</mat-label>
+      <input  type="email" matInput formControlName="to">
+    </mat-form-field>
+
+    <mat-form-field >
+    <mat-label>Cc:</mat-label>
+    <input  type="email" matInput formControlName="cc">
+  </mat-form-field>
+
+  <mat-form-field >
+  <mat-label>Bc:</mat-label>
+  <input  type="email" matInput formControlName="bc">
+</mat-form-field>
+
+<mat-form-field >
+<mat-label>Subject:</mat-label>
+<input  type="text" matInput formControlName="subject">
+</mat-form-field>
+
+<mat-label>File</mat-label>
+<input type="file" id="file"(change)=selectFile($event) accept=".pdf" class="form-control hidden" multiple formControlName="file">
+
+<mat-form-field>
+  <textarea matInput name="questionText" cols="5" rows="3"  required formControlName="message"></textarea>
+     </mat-form-field>
+
+    </form>
+         </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="send()">Send</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="email">
+  <p>EMAIL</p>
+</div>
+
+<div class="two">
+
+  <span class="subcontent">
+  <button mat-raised-button color="primary" (click)="inbox()">INBOX</button>
+  <button mat-raised-button color="primary" (click)="sent()">SENT</button>
+
+  </span>
+<span class="subcontent2">
+  <router-outlet></router-outlet>
+</span>
+</div>
+</div>

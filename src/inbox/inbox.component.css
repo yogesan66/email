@@ -1,0 +1,15 @@
+::ng-deep mat-table{
+  width:100% !important;
+  height:85% !important;
+
+}
+
+::ng-deep th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+  padding-right:20px !important;
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid !important;
+}
+
+table{
+  width:100%;
+}
